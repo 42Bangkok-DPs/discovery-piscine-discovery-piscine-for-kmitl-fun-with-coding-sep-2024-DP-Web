@@ -1,0 +1,97 @@
+/* General body styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f4e3; /* Soft, appetizing background like sandwich paper */
+    margin: 0;
+    padding: 0;
+}
+
+/* Sandwich navigation bar (Top Bun) */
+.sandwich-nav {
+    background-color: #d4a373; /* Bread-like color */
+    overflow: hidden;
+    padding: 10px 0;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow to elevate the "sandwich" */
+}
+
+.sandwich-nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sandwich-nav li {
+    float: left;
+    margin-right: 30px;
+}
+
+.sandwich-nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Hover effect for navigation */
+.sandwich-nav a:hover {
+    background-color: #a0522d; /* Darker "toasted bread" color */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Dropdown button styling */
+.dropdown .dropbtn {
+    background-color: #d4a373; /* Matching sandwich bread color */
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Dropdown content */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #ffe4b5; /* Cheese-like color */
+    min-width: 200px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: #8b4513; /* Meat-like color */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    background-color: #f5deb3; /* Light brown, resembling the sandwich interior */
+}
+
+/* Hover effect for dropdown links */
+.dropdown-content a:hover {
+    background-color: #b22222; /* Tomato-like hover color */
+    color: white;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown is visible */
+.dropdown:hover .dropbtn {
+    background-color: #a0522d; /* Dark toasted bread */
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 600px) {
+    .sandwich-nav ul {
+        flex-direction: column;
+    }
+}

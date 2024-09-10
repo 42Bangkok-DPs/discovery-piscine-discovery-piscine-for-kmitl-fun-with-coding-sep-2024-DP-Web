@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <style>
+        .Input {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 40px;
+        }
+
+        .grid-container {
+            display: grid;
+            gap: 20px 30px;
+            grid-template-columns: auto auto auto;
+            background-color: rgb(0, 255, 149);
+            padding: 10px;
+        }
+
+        .grid-item {
+            background-color: rgb(255, 255, 255);
+            height: 20px;
+            padding: 20px;
+            font-size: 30px;
+            text-align: center;
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .button {
+            padding: 50px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="Input">
+        <div class="leftInput">
+            <input id="leftInput" placeholder="(Left) Enter a positive integer">
+        </div>
+
+        <div class="rightInput">
+            <input id="rightInput" placeholder="(Right) Enter a positive integer">
+        </div>
+    </div>
+
+    <div class="grid-container">
+        <select id="operatorSelect">
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="%">%</option>
+        </select>
+        <span id="selectedOperatorText"></span>
+    </div>
+
+    <div class="button">
+        <button id="calculateBtn">Try me</button>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $('#calculateBtn').click(function() {
+                const leftValue = parseInt($('#leftInput').val());
+                const rightValue = parseInt($('#rightInput').val());
+                const selectedOperator = $('#operatorSelect').val();
+
+                if (isNaN(leftValue) || isNaN(rightValue) || leftValue < 0 || rightValue < 0) {
+                    alert('Please Input the number');
+                    return;
+                }
+
+                let result;
+                switch (selectedOperator) {
+                    case '+':
+                        result = leftValue + rightValue;
+                        break;
+                    case '-':
+                        result = leftValue - rightValue;
+                        break;
+                    case '*':
+                        result = leftValue * rightValue;
+                        break;
+                    case '/':
+                        if (rightValue === 0) {
+                            alert("It's over 9000!");
+                            return;
+                        }
+                        result = leftValue / rightValue;
+                        break;
+                    case '%':
+                        if (rightValue === 0) {
+                            alert("It's over 9000!");
+                            return;
+                        }
+                        result = leftValue % rightValue;
+                        break;
+                    default:
+                        alert('Invalid operator');
+                        return;
+                }
+
+                alert('Result: ' + result);
+                console.log('Result:', result);
+            });
+
+            $('#operatorSelect').change(function() {
+                const selectedOperator = $('#operatorSelect').val();
+                $('#selectedOperatorText').text('Selected Operator: ' + selectedOperator);
+            });
+
+            setInterval(function() {
+                alert('Please, use me...');
+            }, 30000);
+        });
+    </script>
+</body>
+</html>

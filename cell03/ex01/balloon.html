@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="balloon.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="balloon"></div>
+    <script>
+        const balloon = document.getElementById('balloon');
+        //Color start
+        let Color = 'red';
+
+        function changeForword() {
+            switch (Color) {
+                case 'red':
+                    Color = 'green';
+                    balloon.style.backgroundColor = 'green';
+                    break;
+                case 'green':
+                    Color = 'blue';
+                    balloon.style.backgroundColor = 'blue';
+                    break;
+                case 'blue':
+                    Color = 'red';
+                    balloon.style.backgroundColor = 'red';
+                    break;
+            }
+        }
+
+        function changeBackword() {
+            switch (Color) {
+                case 'blue':
+                    Color = 'green';
+                    balloon.style.backgroundColor = 'green';
+                    break;
+                case 'red':
+                    Color = 'blue';
+                    balloon.style.backgroundColor = 'blue';
+                    break;
+                case 'green':
+                    Color = 'red';
+                    balloon.style.backgroundColor = 'red';
+                    break;
+            }
+        }
+
+        function explosion() {
+            
+            changeForword();
+            balloon.style.height = '200px';
+            balloon.style.width = '200px';
+        }
+        //-----------------------------------------------------------------
+        balloon.addEventListener('click', () => {
+            if (balloon.offsetHeight > 420) {
+                //exposion
+                explosion();
+                return;
+            }
+            balloon.style.width = (balloon.offsetWidth + 10) + 'px';
+            balloon.style.height = (balloon.offsetHeight + 10) + 'px';
+            changeForword();
+        });
+
+
+
+        balloon.addEventListener('mouseleave',() => {
+            if(balloon.offsetHeight > 200){
+                // < 200 not Run
+                balloon.style.width = (balloon.offsetWidth - 5) + 'px';
+                balloon.style.height = (balloon.offsetHeight - 5) + 'px';
+                changeBackword();
+            }
+        });
+    </script>
+</body>
+</html>
