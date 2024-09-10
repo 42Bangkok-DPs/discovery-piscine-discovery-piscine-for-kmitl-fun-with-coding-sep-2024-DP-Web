@@ -1,0 +1,57 @@
+/* General body styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+/* Parallax sections styling */
+.parallax {
+    height: 100vh; /* Full viewport height */
+    background-attachment: fixed; /* This is the key for the parallax effect */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+/* First parallax background image */
+.parallax1 {
+    background-image: url('https://www.cdc.gov/healthy-pets/media/images/2024/04/Cat-on-couch.jpg'); /* Replace with your image URL */
+}
+
+/* Second parallax background image */
+.parallax2 {
+    background-image: url('https://www.petsmall.pk/wp-content/uploads/2023/08/GettyImages-1067347086-e1687979577412.jpg'); /* Replace with your image URL */
+}
+
+/* Centered message in the parallax sections */
+.parallax-message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Middle content section styling */
+.content-section {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 50px;
+    font-size: 1.5em;
+    height: 50vh; /* Takes up half the viewport height */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .parallax-message {
+        font-size: 2em;
+    }
+}

@@ -3,4 +3,8 @@ if [ $# -eq 0 ]; then
     exit 0
 fi
 
-echo "$1\n$2\n$3"
+for var in "$@"
+do
+    echo "$var"
+done
+
