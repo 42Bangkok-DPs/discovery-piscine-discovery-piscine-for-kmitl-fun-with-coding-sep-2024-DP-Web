@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+            padding: 10px;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .ft_list {
+            border: 1px solid #ff0717;
+            padding: 10px;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        .new_button {
+            padding: 10px;
+            margin-top: 10px;
+            border: 0;
+            color: white;
+            background-color: rgb(255, 21, 0);
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body>
+    <div class="ft_list">
+        <!-- show note -->
+    </div>
+    <button class="new_button" id="newButton">New</button>
+
+    <script>
+        $(document).ready(function () {
+            get_cookie();
+
+            $('#newButton').click(function () {
+                New_note();
+            });
+        });
+
+        function New_note() {
+            console.log("PROCESS START");
+            const enter_note = prompt("Enter your new note : ");
+            console.log("enter note success : " + enter_note);
+
+            if (enter_note != null && enter_note.trim() !== "") {
+                Add_note(enter_note);
+                save_cookie();
+            }
+        }
+
+        function Add_note(enter_note) {
+            console.log("Add_note(enter_note) -----------");
+
+            const $create_div = $('<div></div>', {
+                text: enter_note,
+                class: 'todo',
+                click: function () {
+                    const confirm_delete = confirm("yes or no you want to remove that TO DO?");
+                    if (confirm_delete) {
+                        $(this).remove();
+                        console.log("Remove success");
+                        alert("Remove successful");
+                        save_cookie();
+                    }
+                }
+            });
+
+            $('.ft_list').prepend($create_div);
+        }
+
+        function save_cookie() {
+            const map_ft = $('.ft_list .todo').map(function () {
+                return $(this).text();
+            }).get();
+
+            document.cookie = "cookie_name=" + JSON.stringify(map_ft);
+            console.log("document.cookie : " + document.cookie);
+        }
+
+        function get_cookie() {
+            const cookieValue = document.cookie.split('; ').find(row => row.startsWith('cookie_name='));
+            if (cookieValue) {
+                const tasks = JSON.parse(cookieValue.split('=')[1]);
+                tasks.reverse().forEach(function (task) {
+                    Add_note(task);
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>
