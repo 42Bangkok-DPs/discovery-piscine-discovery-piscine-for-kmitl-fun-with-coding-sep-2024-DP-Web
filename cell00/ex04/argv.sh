@@ -3,8 +3,6 @@ if [ $# -eq 0 ]; then
     exit 0
 fi
 
-for var in "$@"
-do
-    echo "$var"
+for i in {1..3}; do
+     echo "${$i}"
 done
-
