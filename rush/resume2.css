@@ -1,0 +1,140 @@
+@font-face {
+    font-family: 'Monaco';
+    src: url('https://raw.githubusercontent.com/cstrap/monaco-font/master/Monaco/Monaco.ttf') format('truetype');
+}
+body {
+    font-family: 'Monaco', sans-serif;
+    background-color: #f3f2ef;
+    margin: 0;
+    padding: 0;
+    color: #000000;
+    background-image: url(https://images.pexels.com/photos/1004665/pexels-photo-1004665.jpeg?cs=srgb&dl=pexels-eberhardgross-1004665.jpg&fm=jpg);
+}
+.container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.nav-bar {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    z-index: 1;
+}
+.nav-brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0a66c2;
+    text-decoration: none;
+}
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+.nav-link {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #0a66c2;
+    transition: background-color 0.3s;
+}
+.nav-link:hover {
+    background-color: #004182;
+}
+.profile-header {
+    background-color: #1877f2;
+    height: 200px;
+    position: relative;
+}
+.profile-info {
+    padding: 20px;
+    padding-top: 80px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 4px solid #ffffff;
+    position: absolute;
+    bottom: -75px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f3f2ef;
+    background-image: url(https://media.licdn.com/dms/image/v2/D5603AQHCCjun6RoTxQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1726237626481?e=1731542400&v=beta&t=sBDIVLZXIg42P1mtbsVCFTtiC01pBzlWEYyiHo57lyc);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+.profile-header {
+    background-image: url(https://i.ytimg.com/vi/CRRChZJpQ30/maxresdefault.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+}
+.job-title {
+    font-size: 20px;
+    color: rgba(0, 0, 0, 0.6);
+    margin: 10px 0;
+    text-align: center;
+}
+.location {
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 10px;
+    text-align: center;
+}
+.section {
+    border-top: 1px solid #e0e0e0;
+    padding: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.section-title {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: #ffffff;
+    background-color: #ffa500;
+    display: inline-block;
+}
+.activity-item {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+.experience-item, .education-item, .skills-item, .honors-item, .language-item {
+    margin-bottom: 20px;
+}
+.job-title-exp {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.company-name, .skill-endorsement {
+    color: rgba(0, 0, 0, 0.6);
+    margin-bottom: 5px;
+}
+.job-duration {
+    font-style: italic;
+    color: rgba(0, 0, 0, 0.6);
+}
+.icon {
+    margin-right: 10px;
+    color: #0a66c2;
+}
