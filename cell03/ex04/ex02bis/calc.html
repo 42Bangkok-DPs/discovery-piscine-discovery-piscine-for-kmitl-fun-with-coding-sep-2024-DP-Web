@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Improved Calculator</title>
+    <style>
+        body {
+            background-color: #97b3cb;
+            margin: 10%;
+            padding: 0;
+            height: 100vh;
+            font-family: monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        h1 {
+            color: black;
+            text-align: center; 
+            font-size: 30px;
+        }
+        .box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+        }
+        .box > div {
+            margin: 10px;
+        }
+        input, select {
+            border-radius: 5px;
+            border: none;
+            padding: 5px;
+            margin-top: 5px;
+            font-size: 25px;
+            width: 200px;
+        }
+        select {
+            width: 50px;
+        }
+        .btn {
+            width: 75px;
+            cursor: pointer;
+            background-color: #2f4252;
+            color: #ddd;
+        }
+        .btn:hover {
+            background-color: #516b83;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div class="box">
+        <div>
+            <label for="num1">Input Number #1:</label><br>
+            <input type="text" id="num1">
+        </div>
+        <div>
+            <br>
+            <select id="operator">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="%">%</option>
+            </select>
+        </div>
+        <div>
+            <label for="num2">Input Number #2:</label><br>
+            <input type="text" id="num2">
+        </div>
+        <div>
+            <br>
+            <input type="submit" value="Try Me!" id="calculateBtn" class="btn">
+        </div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            function isPosi(value) {
+                const num = Number(value);
+                return Number.isInteger(num) && num >= 0;
+            }
+
+            function calculate() {
+                const num1 = $("#num1").val();
+                const num2 = $("#num2").val();
+                const ope = $("#operator").val();
+
+                if (!isPosi(num1) || !isPosi(num2)) {
+                    alert('Error :(');
+                    console.log('Error :(');
+                    return;
+                }
+
+                const n1 = parseInt(num1);
+                const n2 = parseInt(num2);
+
+                if ((ope === '/' || ope === '%') && n2 === 0) {
+                    alert("It's over 9000!");
+                    console.log("It's over 9000!");
+                    return;
+                }
+
+                let result;
+                switch(ope) {
+                    case '+': result = n1 + n2; break;
+                    case '-': result = n1 - n2; break;
+                    case '*': result = n1 * n2; break;
+                    case '/': result = n1 / n2; break;
+                    case '%': result = n1 % n2; break;
+                }
+
+                alert(result);
+                console.log(result);
+            }
+
+            function remindUser() {
+                alert("Please, use me...");
+            }
+
+            $("#calculateBtn").on("click", calculate);
+
+            setInterval(remindUser, 30000);
+        });
+    </script>
+</body>
+</html>
