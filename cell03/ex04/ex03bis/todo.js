@@ -1,67 +1,39 @@
 $(document).ready(function() {
-    // Load todos from cookies
-    function loadTodos() {
-        const todos = getCookie('todos');
-        if (todos) {
-            const todoArray = JSON.parse(todos);
-            todoArray.forEach(todo => createTodoElement(todo));
-        }
-    }
+    // Load saved todos from localStorage and render them
+    const loadTodos = () => {
+        const todos = JSON.parse(localStorage.getItem('todos')) || [];
+        $('#ft_list').empty(); // Clear the list first
+        todos.forEach(todo => {
+            $('#ft_list').append(`<div class="todo">${todo}</div>`); // Append to the bottom
+        });
+    };
 
-    // Create a todo element and add to DOM
-    function createTodoElement(task) {
-        const $todoDiv = $('<div></div>')
-            .addClass('todo')
-            .text(task)
-            .click(function() {
-                if (confirm('Do you want to delete this item?')) {
-                    $(this).remove();
-                    saveTodos();
-                }
-            });
-        $('#ft_list').prepend($todoDiv);
-    }
+    // Save todos to localStorage
+    const saveTodos = () => {
+        const todos = [];
+        $('.todo').each(function() {
+            todos.push($(this).text());
+        });
+        localStorage.setItem('todos', JSON.stringify(todos));
+    };
 
-    // Save todos to cookies
-    function saveTodos() {
-        const todos = $('.todo').map(function() {
-            return $(this).text();
-        }).get();
-        setCookie('todos', JSON.stringify(todos), 7); // Save for 7 days
-    }
-
-    // Set a cookie
-    function setCookie(name, value, days) {
-        let expires = "";
-        if (days) {
-            const date = new Date();
-            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-            expires = "; expires=" + date.toUTCString();
-        }
-        document.cookie = name + "=" + (value || "") + expires + "; path=/";
-    }
-
-    // Get a cookie by name
-    function getCookie(name) {
-        const nameEQ = name + "=";
-        const ca = document.cookie.split(';');
-        for(let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-        }
-        return null;
-    }
-
-    // Handle new task creation
+    // Add new todo
     $('#new').click(function() {
-        const task = prompt('Enter a new TO DO:');
-        if (task) {
-            createTodoElement(task);
-            saveTodos();
+        const todo = prompt('Enter a new task:');
+        if (todo) {
+            $('#ft_list').append(`<div class="todo">${todo}</div>`); // Append to the bottom
+            saveTodos(); // Save after adding a new todo
         }
     });
 
-    // Load existing todos when the page loads
+    // Remove todo on click
+    $('#ft_list').on('click', '.todo', function() {
+        if (confirm('Do you want to remove this task?')) {
+            $(this).remove();
+            saveTodos(); // Save after removing a todo
+        }
+    });
+
+    // Load todos when the page loads
     loadTodos();
 });
