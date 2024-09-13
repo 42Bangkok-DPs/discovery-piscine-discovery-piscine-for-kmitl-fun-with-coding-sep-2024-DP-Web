@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Teams</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    .plerkom {
+        display: flex;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+        background: #abfba1;
+    }
+
+    .pamnakit {
+        float: right;
+        margin-bottom: 5%;
+    }
+
+    .head h1 {
+        text-align: center;
+        margin-top: 25vh; /* Add margin to prevent overlap with the fixed navbar */
+    }
+    .modal1{
+         box-shadow: 5px 2px 5px rgba(0,0,0,0.2);
+         background-color: #fff;
+         color:black;
+         border-radius: 10%;
+         height:350px;
+         width:600px; /* Increased width for layout */
+       display: none;
+       z-index: 1;
+       margin-top: -70%;
+    }
+
+    .modal2{
+        box-shadow: 5px 2px 5px rgba(0,0,0,0.2);
+         background-color: #fff;
+         color:black;
+         border-radius: 10%;
+         height:350px;
+         width:600px; /* Increased width for layout */
+       display: none;
+       z-index: 1;
+    }
+    .modal1 h5{
+        color:#000;
+    }
+    .close1,.close:hover{
+        cursor: pointer;
+        font-size: 20px;
+    }
+    .close1,.close2{
+        font-size: 16px;
+    }
+    .modal1 .contact, .modal2 .contact{
+        margin-top: -4%;
+    }
+</style>
+<body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between">
+                <div class="d-flex">
+                    <a class="navbar-brand" href="index.html">
+                        <img src="img/logo.png" class="ms-5" height="auto" width="55px"> | Portfolio Pamnakit & Plertkom Teams
+                    </a>
+                </div>
+                <div class="d-flex">
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="team.html">Our Teams</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="contact.html">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="head">
+        <h1>Contact us.</h1>
+    </div>
+
+    <div class="plerkom">
+        <div class="container">
+            <img src="img/plertkom.png" alt="" class="w-20 h-30 ms-5" style="margin-top: 15%; height: 70vh;" id="pan">
+            <div class="des">
+                <b class="text-dark" >Plertkom</b>
+                <a href="#pan" class="show1 text-dark">
+                    <h5><i class="fa-solid fa-circle-info text-danger"></i> Information</h5>
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <center>
+        <img src="img/logo.png" alt="" srcset="">
+    </center>
+
+    <div class="pamnakit">
+        <div class="container">
+            <img src="img/pamnakit.png" alt="" class="w-20 h-30 md-3" style="margin-top: 15%; height: 50vh; margin-right: 10vw;">
+            <div class="des">
+                <b class="text-dark" id="april">Pamnakit</b> 
+                <a href="#april" class="text-dark" id="show2">
+                    <h5><i class="fa-solid fa-circle-info text-primary"></i> Information</h5>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <center>
+       
+        <div class="modal1 text-dark">
+            <i class="fa-solid fa-xmark close1" style=" margin-top:20px;margin-left:80%;"></i>
+            <br><br>
+            <h2>Plertkom-Pannawat Lertkomenkul</h2>
+            <div class="d-flex">
+                <img src="img/plertkom1.jpg" alt="" class="w-20 h-30" style="border-radius: 50%;width:20%;height:auto;margin-left:3%">
+                <div class="contact ms-4">
+                    <h5 class="text-dark mt-3"><i class="fa-brands fa-square-facebook"></i> ปัณณวัฒน์ เลิศโกเมนกุล</h5>
+                    <h5 class="text-dark mt-3"><i class="fa-brands fa-line"></i> pannawat2549</h5>
+                    <h5 class="text-dark mt-3"><i class="fa-solid fa-phone"></i> 083-975-5619</h5>
+                    <h5 class="text-dark mt-3"><i class="fa-brands fa-youtube"></i> PanplayITgoeasy</h5>
+                    <h5 class="text-dark mt-3"><i class="fa-solid fa-envelope"></i> <a href="mailto:67050334@kmitl.ac.th" style="color: #000;text-decoration: none;">67050334@kmitl.ac.th</a></h5>
+                    <h5 class="text-dark mt-3"><i class="fa-brands fa-discord"></i>0334plertkom</h5>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal2 text-dark">
+            <i class="fa-solid fa-xmark close2" style=" margin-top:20px;margin-left:80%;"></i>
+            <br><br>
+            <h2>Pamnakit- Phongpitch Amnakitseri</h2>
+            <div class="d-flex">
+                <img src="img/28863.jpg" alt="" class="w-20 h-30" style="border-radius: 50%;width:20%;height:auto;margin-left:3%">
+                <div class="contact ms-4">
+                    <h5 class="text-dark mt-3"><i class="fa-brands fa-square-facebook"></i> Apr Phongpitch</h5>
+                    <h5 class="text-dark mt-3"><i class="fa-brands fa-line"></i> aprilzaza</h5>
+                    <h5 class="text-dark mt-3"><i class="fa-brands fa-square-instagram"></i>amnakitseri</h5>
+                    <h5 class="text-dark mt-3"><i class="fa-solid fa-envelope"></i> <a href="mailto:Phich2549@gmail.com" style="color: #000;text-decoration: none;">67050334@kmitl.ac.th</a></h5>
+                </div>
+            </div>
+        </div>
+    </center>
+  
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $(".show1").click(function(){
+        $(".modal1").fadeToggle( "slow" );
+        $(".show1").hide();
+     
+    });
+    $("#show2").click(function(){
+        $(".modal2").fadeToggle( "slow" );
+        $("#show2").hide();
+     
+    });
+    
+    $(".close1").click(function(){
+        $(".modal1").fadeToggle( "slow" );
+        $(".show1").show();
+    });
+    $(".close2").click(function(){
+        $(".modal2").fadeToggle( "slow" );
+        $("#show2").show();
+    });
+});
+</script>
+</html>
