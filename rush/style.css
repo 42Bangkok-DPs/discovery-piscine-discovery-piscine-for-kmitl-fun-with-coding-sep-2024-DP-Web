@@ -1,0 +1,131 @@
+body {
+    font-family: 'Monaco';
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url(https://images.pexels.com/photos/1004665/pexels-photo-1004665.jpeg?cs=srgb&dl=pexels-eberhardgross-1004665.jpg&fm=jpg);
+}
+
+p {
+    color: black;
+    font-size: 25px;
+}
+
+.both-card {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+/* Container styles */
+.container {
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    margin-top: 27vh;
+}
+
+.both-card, .container {
+    border-radius: 20px;
+}
+
+/* Profile cards container */
+.profile-cards-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+/* Profile card styles */
+.profile-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 20px;
+    width: 300px;
+    text-align: center;
+    margin: 10px;
+}
+
+.profile-pic img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 15px;
+}
+
+.profile-pic img:hover {
+    border-color: pink;
+}
+
+.login {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.description {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.social-icons a {
+    margin: 0 10px;
+}
+
+.social-icons img {
+    width: 30px;
+    height: 30px;
+}
+
+.contact-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-link {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #0a66c2;
+    transition: background-color 0.3s;
+}
+.nav-link:hover {
+    background-color: #004182;
+}
+
+.contact-btn:hover {
+    background-color: #0056b3;
+}
+
+.icon {
+    border-radius: 50%;
+}
