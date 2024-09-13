@@ -51,46 +51,53 @@
     <script>
     $(document).ready(function() {
         $('#tryMeButton').on('click', function() {
-            const leftOperand = parseInt($('#leftOperand').val());
-            const rightOperand = parseInt($('#rightOperand').val());
+            const leftOperand = $('#leftOperand').val();
+            const rightOperand = $('#rightOperand').val();
             const operator = $('#operator').val();
 
-            if (isNaN(leftOperand) || isNaN(rightOperand) || leftOperand < 0 || rightOperand < 0) {
-                alert('Error :(');
-                console.error('Error: Invalid input');
+            // Validate that both inputs are numeric only
+            const isValidNumber = (value) => /^-?\d+(\.\d+)?$/.test(value);
+
+            if (!isValidNumber(leftOperand) || !isValidNumber(rightOperand)) {
+                alert('Error :(.');
+                console.error('Error: Invalid input (non-numeric values)');
                 return;
             }
+
+            // Convert valid inputs to float
+            const leftNumber = parseFloat(leftOperand);
+            const rightNumber = parseFloat(rightOperand);
 
             let result;
 
             switch (operator) {
                 case '+':
-                    result = leftOperand + rightOperand;
+                    result = leftNumber + rightNumber;
                     break;
                 case '-':
-                    result = leftOperand - rightOperand;
+                    result = leftNumber - rightNumber;
                     break;
                 case '*':
-                    result = leftOperand * rightOperand;
+                    result = leftNumber * rightNumber;
                     break;
                 case '/':
-                    if (rightOperand === 0) {
-                        alert("It's over 9000!");
-                        console.error("It's over 9000! Division by zero");
+                    if (rightNumber === 0) {
+                        alert("Error: Division by zero is not allowed.");
+                        console.error("Error: Division by zero");
                         return;
                     }
-                    result = leftOperand / rightOperand;
+                    result = leftNumber / rightNumber;
                     break;
                 case '%':
-                    if (rightOperand === 0) {
-                        alert("It's over 9000!");
-                        console.error("It's over 9000! Modulo by zero");
+                    if (rightNumber === 0) {
+                        alert("Error: Modulo by zero is not allowed.");
+                        console.error("Error: Modulo by zero");
                         return;
                     }
-                    result = leftOperand % rightOperand;
+                    result = leftNumber % rightNumber;
                     break;
                 default:
-                    alert('Error :(');
+                    alert('Error: Invalid operation');
                     console.error('Error: Invalid operation');
                     return;
             }
@@ -99,7 +106,7 @@
             console.log(`Result: ${result}`);
         });
 
-        // Show the alert every 30 seconds
+        // Show an alert every 30 seconds
         setInterval(function() {
             alert('Please, use me...');
         }, 30000);
