@@ -50,6 +50,14 @@
             'width': `${size}px`,
             'height': `${size}px`,
             'background-color': 'red'
+          })
+        }
+        if (size < 200) {
+          size = 200;
+          $balloon.css({
+            'width': `${size}px`,
+            'height': `${size}px`,
+            'background-color': 'red'
           });
         }
       });
