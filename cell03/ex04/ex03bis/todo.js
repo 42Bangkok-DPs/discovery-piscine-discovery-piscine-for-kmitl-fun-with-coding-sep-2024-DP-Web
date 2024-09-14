@@ -13,7 +13,7 @@ $(document).ready(function() {
     // Get a cookie by name
     const getCookie = (name) => {
         const nameEQ = name + "=";
-        const ca = document.cookie.split(';'); // Split by semicolons
+        const ca = document.cookie.split(';'); // Split by semicolon
         for(let i = 0; i < ca.length; i++) {
             let c = ca[i];
             while (c.charAt(0) === ' ') c = c.substring(1, c.length); // Trim leading spaces
@@ -26,11 +26,15 @@ $(document).ready(function() {
     const loadTodos = () => {
         const todosCookie = getCookie('todos');
         let todos = [];
+        console.log('Raw todos cookie:', todosCookie); // Log the raw cookie value
+
         if (todosCookie) {
             try {
-                todos = JSON.parse(todosCookie); // Parse todos
+                todos = JSON.parse(todosCookie); // Try parsing the cookie
             } catch (e) {
                 console.error('Error parsing todos cookie:', e);
+                setCookie('todos', '', -1); // Clear invalid cookie
+                todos = []; // Reset todos
             }
         }
         $('#ft_list').empty(); // Clear the list first
