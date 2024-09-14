@@ -1,24 +1,26 @@
-const getCookies = () => {
-    const cookies = {};
-    const rawCookies = document.cookie; // Get the raw cookie string
-    let startIdx = 0;
-
-    while (startIdx < rawCookies.length) {
-        let endIdx = rawCookies.indexOf(';', startIdx);
-        if (endIdx === -1) {
-            endIdx = rawCookies.length;
-        }
-
-        const cookie = rawCookies.substring(startIdx, endIdx).trim();
-        const [name, value] = cookie.split('=');
-        cookies[name] = value;
-
-        startIdx = endIdx + 1;
+const setCookie = (name, value, days) => {
+    let expires = "";
+    if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
     }
-
-    return cookies;
+    document.cookie = name + "=" + encodeURIComponent(value || "") + expires + "; path=/";
 };
 
-// Usage example
-const cookies = getCookies();
-console.log(cookies);
+const getCookie = (name) => {
+    const nameEQ = name + "=";
+    const cookies = document.cookie;
+    const startIdx = cookies.indexOf(nameEQ);
+
+    if (startIdx === -1) {
+        return null;
+    }
+
+    let endIdx = cookies.indexOf(';', startIdx);
+    if (endIdx === -1) {
+        endIdx = cookies.length;
+    }
+
+    return decodeURIComponent(cookies.substring(startIdx + nameEQ.length, endIdx));
+};
