@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'Monaco';
+    src: url('https://raw.githubusercontent.com/cstrap/monaco-font/master/Monaco/Monaco.ttf') format('truetype');
+}
+body {
+    font-family: 'Monaco', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url(https://images.pexels.com/photos/1004665/pexels-photo-1004665.jpeg?cs=srgb&dl=pexels-eberhardgross-1004665.jpg&fm=jpg);
+}
+.nav-bar {
+    background-color: #ffffff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e0e0e0;
+    z-index: 1;
+}
+.nav-brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: #0a66c2;
+    text-decoration: none;
+}
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+.nav-link {
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #0a66c2;
+    transition: background-color 0.3s;
+}
+.nav-link:hover {
+    background-color: #004182;
+}
+.contact-section {
+    padding: 50px;
+    text-align: center;
+    margin-bottom: 5vh;
+}
+.contact-section h2 {
+    font-size: 24px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: #ffffff;
+    background-color: #ffa500;
+    display: inline-block;
+}
+.contact-icons {
+    padding-top: 5vh;
+    padding-bottom: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.contact-icons div {
+    text-align: center;
+}
+.contact-icons img {
+    width: 50px;
+    height: 50px;
+}
+.contact-icons a {
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    color:white;
+}
+.container {
+    position: relative;
+    height: 100vh;
+}
+.form-container {
+    margin-top: 50px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
+}
+.form-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.form-container label {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+.form-container input, .form-container textarea {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+.form-container textarea {
+    resize: vertical;
+    height: 100px;
+}
+.form-container button {
+    padding: 10px 20px;
+    font-size: 18px;
+    background-color: #0a66c2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.form-container button:hover {
+    background-color: #004182;
+}

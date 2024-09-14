@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Balloon</title>
+    <style>
+        #balloon {
+            width: 200px;
+            height: 200px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            margin: 50px auto;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="balloon"></div>
+
+    <script>
+        let colorIndex = 0;
+        let size = 200;
+        const balloon = document.getElementById('balloon');
+        const colorPalette = ['#ff0000', '#008000', '#0000ff'];
+
+        function updateBalloon() {
+            balloon.style.width = `${size}px`;
+            balloon.style.height = `${size}px`;
+            balloon.style.backgroundColor = colorPalette[colorIndex];
+        }
+
+        function balloonClicked() {
+            size += 10;
+            if (size > 420) {
+                size = 200;
+                colorIndex = 0;
+            } else {
+                colorIndex = (colorIndex + 1) % 3;
+            }
+            updateBalloon();
+        }
+
+        function mouseLeaved() {
+            if (size > 200) {
+                size = Math.max(200, size - 5);
+                colorIndex = (colorIndex - 1 + 3) % 3;
+                updateBalloon();
+            }
+        }
+
+        balloon.addEventListener("click", balloonClicked);
+        balloon.addEventListener("mouseleave", mouseLeaved);
+
+        updateBalloon();
+    </script>
+</body>
+</html>
