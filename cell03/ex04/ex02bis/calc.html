@@ -82,6 +82,7 @@
                 case '/':
                     if (rightNumber === 0) {
                         alert("Error: It’s over 9000!");
+                        console.error("It’s over 9000!");
                        
                         return;
                     }
@@ -90,6 +91,7 @@
                 case '%':
                     if (rightNumber === 0) {
                         alert("It’s over 9000!");
+                        console.error("It’s over 9000!");
                         return;
                     }
                     result = leftNumber % rightNumber;
