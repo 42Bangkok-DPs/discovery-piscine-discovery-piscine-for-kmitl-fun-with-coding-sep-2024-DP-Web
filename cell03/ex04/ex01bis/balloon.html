@@ -69,12 +69,14 @@
       $balloon.on('mouseleave', function() {
         size -=5;
         colorIndex = (colorIndex - 1) % colors.length;
+        alert(colorIndex)
+        
         $balloon.css({
           'width': `${size}px`,
           'height': `${size}px`,
           'background-color': colors[1-colorIndex]
         });
-        alert(colorIndex)
+        
         if (size < 200) {
           size = 200;
           $balloon.css({
