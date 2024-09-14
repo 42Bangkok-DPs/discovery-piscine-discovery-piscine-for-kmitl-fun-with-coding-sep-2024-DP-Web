@@ -13,7 +13,7 @@ $(document).ready(function() {
     // Get a cookie by name
     const getCookie = (name) => {
         const nameEQ = name + "=";
-        const ca = document.cookie.split(',');
+        const ca = document.cookie.split(';');  // Split by semicolon instead of comma
         for(let i = 0; i < ca.length; i++) {
             let c = ca[i];
             while (c.charAt(0) === ' ') c = c.substring(1, c.length);
