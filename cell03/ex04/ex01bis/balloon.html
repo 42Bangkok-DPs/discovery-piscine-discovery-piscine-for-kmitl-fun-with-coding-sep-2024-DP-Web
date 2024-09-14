@@ -69,7 +69,7 @@
 
       // On mouseleave: reset the balloon to its original size and color
       $balloon.on('mouseleave', function() {
-        size = 200;
+        size -=5;
         $balloon.css({
           'width': `${size}px`,
           'height': `${size}px`,
