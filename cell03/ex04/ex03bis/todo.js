@@ -13,10 +13,10 @@ $(document).ready(function() {
     // Get a cookie by name
     const getCookie = (name) => {
         const nameEQ = name + "=";
-        const ca = document.cookie.split(';');  // Split by semicolon instead of comma
+        const ca = document.cookie.split(';'); // Split by semicolons
         for(let i = 0; i < ca.length; i++) {
             let c = ca[i];
-            while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+            while (c.charAt(0) === ' ') c = c.substring(1, c.length); // Trim leading spaces
             if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
         }
         return null;
@@ -24,7 +24,15 @@ $(document).ready(function() {
 
     // Load saved todos from cookies and render them
     const loadTodos = () => {
-        const todos = JSON.parse(getCookie('todos')) || [];
+        const todosCookie = getCookie('todos');
+        let todos = [];
+        if (todosCookie) {
+            try {
+                todos = JSON.parse(todosCookie); // Parse todos
+            } catch (e) {
+                console.error('Error parsing todos cookie:', e);
+            }
+        }
         $('#ft_list').empty(); // Clear the list first
         todos.forEach(todo => {
             $('#ft_list').append(`<div class="todo">${todo}</div>`); // Append to the bottom
