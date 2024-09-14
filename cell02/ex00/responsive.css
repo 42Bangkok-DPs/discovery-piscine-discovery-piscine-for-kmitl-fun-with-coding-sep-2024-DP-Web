@@ -1,0 +1,11 @@
+table td {
+    width:50vw;
+    text-align: center;
+    height: 5vh;
+}
+#first{
+    background-color: #e35205;
+}
+#second{
+    background-color: #fcd8c4;
+}
