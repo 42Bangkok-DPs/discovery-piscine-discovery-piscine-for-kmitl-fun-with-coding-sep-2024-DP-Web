@@ -60,7 +60,6 @@
 
             if (!isValidNumber(leftOperand) || !isValidNumber(rightOperand)) {
                 alert('Error :(.');
-                console.error('Error: Invalid input (non-numeric values)');
                 return;
             }
 
@@ -82,16 +81,15 @@
                     break;
                 case '/':
                     if (rightNumber === 0) {
-                        alert("Error: Division by zero is not allowed.");
-                        console.error("Error: Division by zero");
+                        alert("Error: It’s over 9000!");
+                       
                         return;
                     }
                     result = leftNumber / rightNumber;
                     break;
                 case '%':
                     if (rightNumber === 0) {
-                        alert("Error: Modulo by zero is not allowed.");
-                        console.error("Error: Modulo by zero");
+                        alert("It’s over 9000!");
                         return;
                     }
                     result = leftNumber % rightNumber;
