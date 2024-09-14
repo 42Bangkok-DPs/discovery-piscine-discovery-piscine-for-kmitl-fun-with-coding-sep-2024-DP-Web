@@ -10,16 +10,22 @@ $(document).ready(function() {
         document.cookie = name + "=" + (value || "") + expires + "; path=/";
     };
 
-    // Get a cookie by name
+    // Get a cookie by name without using split(';')
     const getCookie = (name) => {
         const nameEQ = name + "=";
-        const ca = document.cookie.split(';'); // Split by semicolon
-        for(let i = 0; i < ca.length; i++) {
-            let c = ca[i];
-            while (c.charAt(0) === ' ') c = c.substring(1, c.length); // Trim leading spaces
-            if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+        const cookies = document.cookie; // Get the raw cookie string
+        const startIdx = cookies.indexOf(nameEQ); // Find the start of the cookie name
+
+        if (startIdx === -1) {
+            return null; // Cookie not found
         }
-        return null;
+
+        let endIdx = cookies.indexOf(';', startIdx); // Find the end of this cookie
+        if (endIdx === -1) {
+            endIdx = cookies.length; // If no semicolon, assume it's the last cookie
+        }
+
+        return cookies.substring(startIdx + nameEQ.length, endIdx); // Extract the cookie value
     };
 
     // Load saved todos from cookies and render them
