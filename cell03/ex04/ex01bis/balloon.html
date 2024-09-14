@@ -68,14 +68,18 @@
       // On mouseleave: reset the balloon to its original size and color
       $balloon.on('mouseleave', function() {
         size -=5;
-        colorIndex = (colorIndex - 1) % colors.length;
-        alert(colorIndex)
+        colorIndex-=1
+        if (colorIndex < 0) {
+          colorIndex = 2;
+        }
+      
         
         $balloon.css({
           'width': `${size}px`,
           'height': `${size}px`,
-          'background-color': colors[1-colorIndex]
+          'background-color': colors[colorIndex]
         });
+        console.log(colorIndex)
         
         if (size < 200) {
           size = 200;
