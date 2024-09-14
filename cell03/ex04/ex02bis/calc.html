@@ -60,13 +60,18 @@
 
             if (!isValidNumber(leftOperand) || !isValidNumber(rightOperand)) {
                 alert('Error :(.');
+                console.error('Error: Invalid input (non-numeric values)');
                 return;
             }
 
             // Convert valid inputs to float
             const leftNumber = parseFloat(leftOperand);
             const rightNumber = parseFloat(rightOperand);
-
+          if (leftNumber < 0 || rightNumber < 0) {
+                alert('Error :(.');
+                console.error('Error: Invalid input (negative values)');
+                return;
+            }
             let result;
 
             switch (operator) {
@@ -81,22 +86,23 @@
                     break;
                 case '/':
                     if (rightNumber === 0) {
-                        alert("Error: It’s over 9000!");
-                        console.error("It’s over 9000!");
-                       
+                        alert("Error: Division by zero is not allowed.");
+                        console.error("Error: Division by zero");
                         return;
                     }
                     result = leftNumber / rightNumber;
                     break;
                 case '%':
                     if (rightNumber === 0) {
-                        alert("It’s over 9000!");
+                        alert("Error: Modulo by zero is not allowed.");
+                        console.error("Error: Modulo by zero");
                         return;
                     }
                     result = leftNumber % rightNumber;
                     break;
                 default:
                     alert('Error: Invalid operation');
+                    console.error('Error: Invalid operation');
                     return;
             }
 
