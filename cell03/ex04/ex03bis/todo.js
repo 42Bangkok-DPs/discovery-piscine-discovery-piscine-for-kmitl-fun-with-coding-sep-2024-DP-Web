@@ -14,7 +14,7 @@ $(document).ready(function() {
         const savedTodos = localStorage.getItem('todos');
         if (savedTodos) {
             const todos = JSON.parse(savedTodos);
-            $.each(todos.reverse(), function(index, todoText) {
+            todos.forEach(todos.reverse(), function(index, todoText) {
                 addTodoToList(todoText);
             });
         }
