@@ -7,14 +7,14 @@ $(document).ready(function() {
         const todos = $todoList.children().map(function() {
             return $(this).contents().first().text().trim();
         }).get();
-        localStorage.setItem('todos', JSON.stringify(todos));
+        Cookies.set('todos', JSON.stringify(todos), { expires: 365 }); // Expires in 1 year
     }
 
     function loadTodos() {
-        const savedTodos = localStorage.getItem('todos');
+        const savedTodos = Cookies.get('todos');
         if (savedTodos) {
             const todos = JSON.parse(savedTodos);
-            todos.forEach(todos.reverse(), function(index, todoText) {
+            $.each(todos.reverse(), function(index, todoText) {
                 addTodoToList(todoText);
             });
         }
